@@ -30,7 +30,6 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
   const useDataApi = (initialUrl, initialData) => {
     const { useState, useEffect, useReducer } = React;
     const [url, setUrl] = useState(initialUrl);
-  
     const [state, dispatch] = useReducer(dataFetchReducer, {
       isLoading: false,
       isError: false,
@@ -89,7 +88,7 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
     const { Fragment, useState, useEffect, useReducer } = React;
     const [query, setQuery] = useState("MIT");
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 10;
+    const [pageSize, setPageSize] = useState(10);
     const [{ data, isLoading, isError }, doFetch] = useDataApi(
       "https://hn.algolia.com/api/v1/search?query=MIT",
       {
@@ -106,6 +105,22 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
     }
     return (
       <Fragment>
+        <Pagination
+          items={data.hits}
+          pageSize={pageSize}
+          onPageChange={handlePageChange}
+        ></Pagination>
+
+        <select
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+        >
+          {[5, 10, 15].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+                Show {pageSize} articles
+              </option>
+          ))} 
+        </select>
         <form
           onSubmit={event => {
             doFetch("http://hn.algolia.com/api/v1/search?query=${query}");
