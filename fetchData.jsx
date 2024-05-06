@@ -132,7 +132,7 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
             value={query}
             onChange={event => setQuery(event.target.value)}
           />
-          <button type="submit">Search</button>
+          <button class="submit-button" type="submit">Search</button>
         </form>
   
         {isError && <div>Something went wrong ...</div>}
