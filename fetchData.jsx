@@ -86,11 +86,11 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
   // App that gets data from Hacker News url
   function App() {
     const { Fragment, useState, useEffect, useReducer } = React;
-    const [query, setQuery] = useState("MIT");
+    const [query, setQuery] = useState("React");
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
     const [{ data, isLoading, isError }, doFetch] = useDataApi(
-      "https://hn.algolia.com/api/v1/search?query=MIT",
+      "https://hn.algolia.com/api/v1/search?query=React",
       {
         hits: []
       }
