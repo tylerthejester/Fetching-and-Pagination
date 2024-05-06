@@ -2,11 +2,12 @@
 
 ## Description
 
-This is the assignment for the course "Professional Certificate in Coding: Full Stack Development with MERN", and it is about fetching data from an external API, and paginate based on how many items that we want to appear on one page.
+This is the assignment for the course "Professional Certificate in Coding: Full Stack Development with MERN", and it is about fetching data from an external API, and paginating based on how many items we want to appear on one page.
 
 ### Improvements
 
-• Added setPageSize allowing users to choose different options for how many articles showing on one page <br />
+• Added setPageSize allowing users to choose different options for how many articles showed per page <br />
+• Added additional page buttons right below the title, so users can switch pages either at the top or at the bottom. <br />
 • Updated styling such as search input, list items, and buttons
 
 ## How to run
